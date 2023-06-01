@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>مهارات</title>
+        
+        <link rel="stylesheet" href="css/all.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/style1.css" />
+      </head>
+<body>
+  <div class="card text-center">
+    <div class="card-body justify-content-center">
+      <h1>Welcome</h1>
+      <p>Login to get started!</p>
+      <button type="button" class="btn btn-outline-info mb-3"  data-bs-toggle="modal" data-bs-target="#signModel">Sign In</button><br>
+      <span class="text-secondary">Don't have an account?</span>
+      <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+
+    </div>
+  </div>
+
+  <!-- Modal1 -->
+  <div class="modal fade" id="signModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sigin</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label ">Email address</label>
+            <input type="email" class="form-control emailLogin" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">PassWord</label>
+            <input type="password" class="form-control passwordLogin" id="exampleFormControlInput1">
+          </div>
+          <a class="nav-link " aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#forgetModel">Forget password?</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" onclick="login()" id="log">LogIn</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal2 -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label ">UserName</label>
+            <input type="text" class="form-control userN" id="exampleFormControlInput1" placeholder="Enter your Name">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label ">Email address</label>
+            <input type="email" class="form-control userEmail" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label ">PassWord</label>
+            <input type="password" class="form-control passwo" id="exampleFormControlInput1">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="Adduser()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal3 -->
+    <div class="modal fade" id="forgetModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Forgot password?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">New PassWord:</label>
+              <input type="password" class="form-control Npassword" id="exampleFormControlInput1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">New PassWord confirmation:</label>
+              <input type="password" class="form-control" id="exampleFormControlInput1">
+            </div>
+           
+          </div>
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-primary"onclick="Newpassword()">Reset Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $(`.card`).slideDown(800);
+  });
+  function Adduser(){
+  
+  var userName = $(".userN").val();
+  var email = $(`.userEmail`).val();
+  var passWord= $ (`.passwo`).val();
+ 
+  localStorage.setItem("Name", userName);
+  localStorage.setItem("Email", email);
+  localStorage.setItem("PassWord", passWord);
+ 
+  console.log(userName);
+  console.log(email);
+  console.log(passWord);
+   }
+   function Newpassword(){
+     $ (`.passwo`).val()=$(`.Npassword`);
+   }
+   function login() {
+      
+
+      var email = $(".emailLogin").val();
+      var password = $(".passwordLogin").val();
+
+      if(email == ""){
+
+        alert("Please enter email");
+        return;
+
+      }else if(password == ""){
+
+        alert("please enter password");
+        return;
+
+      }
+
+
+      var localEmail = localStorage.getItem("Email");
+      var localPassword = localStorage.getItem("PassWord");
+
+      console.log(localEmail);
+      console.log(localPassword);
+
+      if (email == localEmail && password == localPassword) {
+        
+        $('#log').html("<a href='index3.html'>login</a>");
+      
+    
+      } else {
+        alert("Error Information");
+      }
+
+      
+    }
+</script>
+</html>

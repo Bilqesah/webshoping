@@ -1,0 +1,19 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    
+    background-image: url(../imges/tm2.jpg);
+    background-size: cover;
+}
+.card{
+    width: 50%;
+    border-radius: 20px;
+    display: none;
+    
+}
+.card h1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+

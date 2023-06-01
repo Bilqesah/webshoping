@@ -1,0 +1,30 @@
+.serch{
+    width: 50%;
+}
+.log{
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    
+}
+.icons{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+.icons i{
+    color: white;
+} 
+.N{
+    color:black;
+}
+.h-100{
+    height: 100px;
+}
+.siz{
+    height: 230px;
+}
+

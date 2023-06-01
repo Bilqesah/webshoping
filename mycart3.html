@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>مهارات</title>
+
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style2.css"/>
+  </head>
+  <body>
+     <!--nav2-->
+     <nav class="navbar navbar-expand-lg  text-bg-success ">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand text-white" href="#">HomeCenter</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+            <li class="nav-item">
+              <a class="nav-link active text-white ms-2" aria-current="page" href="#">Home</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link active text-white ms-3" aria-current="page" href="#">New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white ms-3" aria-current="page" href="#">Discounts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white ms-3" aria-current="page" href="#">contact</a>
+            </li>
+  
+           
+          </ul>
+          <a href="Sigup.html" class="log">LogIn</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container concart">
+      
+      <div class="row">
+        <div class="col-6"><h3 class="m-5">Items In My Cart</h3>
+        
+        </div>
+        <div class="card text-center thn-card col-6">
+          <div class="card-body justify-content-center">
+            <p>Thank You<br>Your Request Has Been Successfully Received</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-8">
+            <table class="table m-4">
+         
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col"> Quantity</th>
+                    <th scope="col">Final Price</th>
+                    <th scope="col">Remove</th>
+        
+                  </tr>
+                </thead>
+                <tbody id="tBody">
+               
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+                <h3 class="card-header ">
+                  Summary
+                </h3>
+                <div class="card-body">
+                  <div class="input-group mb-2">
+                    <span class="input-group-text">SUB TOTAL</span>
+
+                    <input type="text" aria-label="First name" class="form-control">
+                    
+                  </div>
+                  <div class="input-group mb-2">
+                    <span class="input-group-text">DELVERY</span>
+                    <input type="text" aria-label="First name" class="form-control">
+                    
+                  </div>
+                  <div class="col-auto mb-2">
+                    <label for="inputPassword2" class="visually-hidden">Password</label>
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="Enter card Password">
+                  </div>
+                  <div class="input-group mb-2">
+                    <span class="input-group-text">TOTAL PRICE</span>
+                    <input type="text" aria-label="First name" class="form-control">
+            
+                  </div>
+                  <a href="#" class="btn btn-success" onclick="thanks()">Check Out</a>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+    </div>
+   
+    
+-        
+  </body>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    function thanks(){
+      $(`.thn-card`).slideDown(800);
+    }
+
+    showcart();
+
+    var mycart=[];
+    function showcart(){
+  var mycart=JSON.parse(localStorage.getItem("Sarray"));
+  console.log(mycart);
+  var Thtml="";
+    var j=1;
+    for(var i=0;i<mycart.length;i++){
+   Thtml+=`<tr>
+            <td>`+ j++ +`</td>
+            <td>`+ mycart[i]["Name"] +`</td>
+            <td>`+mycart[i]["Price"]+`</td>
+            <td><input type="number" class="form-control" step="1"></td>
+             </tr>`
+    }
+    $(`#tBody`).html(Thtml);
+}
+
+  </script>
+</html>

@@ -1,0 +1,24 @@
+body{
+    height: 100vh;
+    
+}
+.container{
+box-shadow: 5px 5px 5px #cd853f;
+}
+.thn-card{
+    width: 50%;
+    border-radius: 20px;
+    display: none; 
+    margin:20px 50px;
+    font-size: 15px;
+    
+}
+
+.card h1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} 
+.log{
+    color: white;
+    text-decoration: none;
+    padding-right: 20px;
+}
